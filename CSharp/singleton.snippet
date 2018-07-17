@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
+    <CodeSnippet Format="1.0.0">  
+        <Header>
+            <Title>Singleton pattern</Title>
+            <Shortcut>singleton</Shortcut>
+            <Author>高昌廷</Author>
+            <Description>Singleton pattern for class</Description>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>  
+                <Literal>
+                    <ID>ClassName</ID>
+                    <ToolTip>Class name</ToolTip>
+                    <Default>ClassName</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp" Kind="method decl">
+                <![CDATA[#region Singleton Access
+    
+    /// <summary>
+    /// 當前的 <see cref="$ClassName$"/> 個體
+    /// </summary>
+    private static readonly Lazy<$ClassName$> instance =
+        new Lazy<$ClassName$>(() => new $ClassName$());
+
+    /// <summary>
+    /// 初始化一個 <see cref="$ClassName$"/>
+    /// </summary>
+    private $ClassName$()
+    {
+        // Initialise class$end$
+    }
+
+    /// <summary>
+    /// 取得當前的 <see cref="$ClassName$"/> 個體
+    /// </summary>
+    public static $ClassName$ Instance
+    {
+        get { return $ClassName$.instance.Value; }
+    }
+    
+    #endregion
+                ]]>
+            </Code>  
+        </Snippet>  
+    </CodeSnippet>  
+</CodeSnippets>  
